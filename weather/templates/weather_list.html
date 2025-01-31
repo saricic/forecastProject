@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>Search Weather Data</title>
-    <link rel="stylesheet" type="text/css" href="weather_styles.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/weather_styles.css' %}">
 
 </head>
 <body>
@@ -44,5 +46,3 @@
     {% endif %}
 </body>
 </html>
-
-

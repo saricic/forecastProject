@@ -1,0 +1,176 @@
+[
+    {
+        "name": "Paris",
+        "country": "France",
+        "temperature": "8\u00b0C",
+        "condition": "Light rain"
+    },
+    {
+        "name": "London",
+        "country": "United Kingdom",
+        "temperature": "8\u00b0C",
+        "condition": "Mostly cloudy"
+    },
+    {
+        "name": "Berlin",
+        "country": "Germany",
+        "temperature": "10\u00b0C",
+        "condition": "Cloudy"
+    },
+    {
+        "name": "Barcelona",
+        "country": "Spain",
+        "temperature": "14\u00b0C",
+        "condition": "Mostly cloudy"
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Netherlands",
+        "temperature": "8\u00b0C",
+        "condition": "Mostly cloudy"
+    },
+    {
+        "name": "Athens",
+        "country": "Greece",
+        "temperature": "17\u00b0C",
+        "condition": "Sunny"
+    },
+    {
+        "name": "Moscow",
+        "country": "Russia",
+        "temperature": "4\u00b0C",
+        "condition": "Cloudy"
+    },
+    {
+        "name": "Istanbul",
+        "country": "Turkey",
+        "temperature": "17\u00b0C",
+        "condition": "Sunny"
+    },
+    {
+        "name": "Warsaw",
+        "country": "Poland",
+        "temperature": "11\u00b0C",
+        "condition": "Light rain"
+    },
+    {
+        "name": "Krakow",
+        "country": "Poland",
+        "temperature": "10\u00b0C",
+        "condition": "Cloudy"
+    },
+    {
+        "name": "Gdansk",
+        "country": "Poland",
+        "temperature": "8\u00b0C",
+        "condition": "Rainy"
+    },
+    {
+        "name": "Wroclaw",
+        "country": "Poland",
+        "temperature": "9\u00b0C",
+        "condition": "Partly cloudy"
+    },
+    {
+        "name": "Poznan",
+        "country": "Poland",
+        "temperature": "10\u00b0C",
+        "condition": "Overcast"
+    },
+    {
+        "name": "Lodz",
+        "country": "Poland",
+        "temperature": "10\u00b0C",
+        "condition": "Sunny"
+    },
+    {
+        "name": "Szczecin",
+        "country": "Poland",
+        "temperature": "7\u00b0C",
+        "condition": "Foggy"
+    },
+    {
+        "name": "Bydgoszcz",
+        "country": "Poland",
+        "temperature": "9\u00b0C",
+        "condition": "Cloudy"
+    },
+    {
+        "name": "Lublin",
+        "country": "Poland",
+        "temperature": "8\u00b0C",
+        "condition": "Rain showers"
+    },
+    {
+        "name": "Katowice",
+        "country": "Poland",
+        "temperature": "10\u00b0C",
+        "condition": "Partly cloudy"
+    },
+    {
+        "name": "Bialystok",
+        "country": "Poland",
+        "temperature": "6\u00b0C",
+        "condition": "Snow"
+    },
+    {
+        "name": "Vienna",
+        "country": "Austria",
+        "temperature": "9\u00b0C",
+        "condition": "Partly cloudy"
+    },
+    {
+        "name": "Rome",
+        "country": "Italy",
+        "temperature": "16\u00b0C",
+        "condition": "Sunny"
+    },
+    {
+        "name": "Madrid",
+        "country": "Spain",
+        "temperature": "15\u00b0C",
+        "condition": "Clear"
+    },
+    {
+        "name": "Dublin",
+        "country": "Ireland",
+        "temperature": "7\u00b0C",
+        "condition": "Rain showers"
+    },
+    {
+        "name": "Oslo",
+        "country": "Norway",
+        "temperature": "2\u00b0C",
+        "condition": "Snow"
+    },
+    {
+        "name": "Stockholm",
+        "country": "Sweden",
+        "temperature": "3\u00b0C",
+        "condition": "Cloudy"
+    },
+    {
+        "name": "Ankara",
+        "country": "Turkey",
+        "temperature": "5\u00b0C",
+        "condition": "Foggy"
+    },
+    {
+        "name": "Helsinki",
+        "country": "Finland",
+        "temperature": "-1\u00b0C",
+        "condition": "Snow"
+    },
+    {
+        "name": "Lisbon",
+        "country": "Portugal",
+        "temperature": "18\u00b0C",
+        "condition": "Sunny"
+    },
+    {
+        "name": "Brussels",
+        "country": "Belgium",
+        "temperature": "9\u00b0C",
+        "condition": "Partly cloudy"
+    }
+]

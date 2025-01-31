@@ -1,11 +1,18 @@
 body {
-    background: url('image.jpg') no-repeat center center fixed;
+    background: url('../images/image.jpg') no-repeat center center fixed; /* Corrected path */
     background-size: cover;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     color: white;
     text-align: center;
+}
+
+/* Fallback in case the image doesn't load */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
 }
 
 h1 {
