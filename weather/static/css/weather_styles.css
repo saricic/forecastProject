@@ -1,5 +1,6 @@
+/* Global layout & background */
 body {
-    background: url('../images/image.jpg') no-repeat center center fixed; /* Corrected path */
+    background: url('../images/image.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -8,69 +9,100 @@ body {
     text-align: center;
 }
 
-/* Fallback in case the image doesn't load */
 @media (max-width: 768px) {
     body {
         background-size: contain;
     }
 }
 
-h1 {
-    margin-top: 20px;
-    font-size: 2.8em;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+/* Form Container */
+.form-container {
+    max-width: 600px;             /* Wider container to accommodate side-by-side fields */
+    margin: 50px auto;            /* Center horizontally */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-input[type="text"] {
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Form Rows: label + input side by side */
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* left-align within container */
+    margin: 15px 0;
+}
+
+/* Labels */
+.form-row label {
+    width: 160px;             /* Fixed label width so fields align nicely */
+    text-align: right;        /* Right-align label text */
+    margin-right: 15px;       /* Space between label and input */
+    font-weight: bold;
+}
+
+/* Inputs */
+.form-row input[type="text"],
+.form-row input[type="password"],
+.form-row input[type="email"] {
+    flex: 1;                  /* Take remaining horizontal space */
     padding: 12px;
-    font-size: 1.2em;
+    font-size: 1em;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     outline: none;
-    transition: 0.3s;
+    transition: box-shadow 0.3s;
 }
 
-input[type="text"]:focus {
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+/* Hover/focus states for inputs */
+.form-row input:focus {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Help text (like password rules) */
+.helptext {
+    display: block;
+    font-size: 0.85em;        /* Smaller font */
+    color: #dedede;           /* Slightly lighter text */
+    margin-top: 5px;
+    text-align: left;         /* Align left under the field */
+    width: 100%;
+    margin-left: calc(160px + 15px); /* Align with the input fields */
+}
+
+/* Error messages */
+.errorlist {
+    margin-top: 5px;
+    text-align: left;
+    color: #ffcccc;           /* Light red for errors */
+    font-size: 0.85em;
+    width: 100%;
+    margin-left: calc(160px + 15px); /* Align with the input fields */
+}
+
+/* Submit Button */
 button {
+    margin-top: 20px;
     padding: 12px 24px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.8));
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.4s, box-shadow 0.4s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
     background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(50, 50, 50, 1));
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    margin: 10px auto;
-    padding: 15px;
-    width: 50%;
-    border-radius: 12px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
-}
-
-li:hover {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }

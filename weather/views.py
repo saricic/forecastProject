@@ -1,9 +1,13 @@
 import requests
 import json
 import os
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+# Import your custom registration form
+from .forms import CustomUserCreationForm
 
 # Function to fetch and update JSON data
 def fetch_weather_data():
@@ -25,12 +29,12 @@ def fetch_weather_data():
     except requests.RequestException as e:
         print(f"❌ Error fetching JSON data: {e}")
 
-
-# Weather list view
+@login_required(login_url='login')
 def weather_list(request):
-    # Fetch JSON data only if the file does not exist (to avoid unnecessary API calls)
+    # Define the file path for the JSON data
     file_path = os.path.join(settings.BASE_DIR, "data", "weather_data.json")
 
+    # Fetch JSON data if the file does not exist
     if not os.path.exists(file_path):
         fetch_weather_data()
 
@@ -45,7 +49,25 @@ def weather_list(request):
         weather_data = []  # Return an empty list if the file is missing or invalid
 
     # Filter the data based on the search query
-    filtered_data = [item for item in weather_data if
-                     search_query.lower() in item["name"].lower()] if search_query else []
+    filtered_data = [
+        item for item in weather_data if search_query.lower() in item["name"].lower()
+    ] if search_query else []
 
-    return render(request, "weather_list.html", {"search_query": search_query, "weather_data": filtered_data})
+    return render(request, "weather_list.html", {
+        "search_query": search_query,
+        "weather_data": filtered_data
+    })
+
+# Registration view using the custom form
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user
+            username = form.cleaned_data.get('username')
+            messages.success(request, f"Account created for {username}! You can now log in.")
+            return redirect('login')  # Redirect to the login page after successful registration
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, "register.html", {"form": form})

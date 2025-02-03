@@ -107,3 +107,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # collectstatic için gerek
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redirect after a successful login:
+LOGIN_REDIRECT_URL = '/weather'
+
+# Redirect after logout:
+LOGOUT_REDIRECT_URL = '/login/'
