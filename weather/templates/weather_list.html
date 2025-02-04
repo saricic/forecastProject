@@ -2,10 +2,8 @@
 <html>
 <head>
     <title>Search Weather Data</title>
-
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/weather_styles.css' %}">
-
 </head>
 <body>
     <h1>Search Weather by City</h1>
@@ -23,11 +21,9 @@
 
     <hr>
 
-    {% if not search_query %}
-        <!-- If no query is provided, don't show any results -->
-        <p>Type a city name above and click "Search" to see results.</p>
-    {% else %}
-        <!-- We have a search query; let's show the filtered results -->
+    <!-- Display current search results -->
+    {% if search_query %}
+        <h2>Results for "{{ search_query }}"</h2>
         {% if weather_data %}
             <ul>
                 {% for item in weather_data %}
@@ -35,14 +31,43 @@
                         <strong>City:</strong> {{ item.name }}<br>
                         <strong>Country:</strong> {{ item.country }}<br>
                         <strong>Temperature:</strong> {{ item.temperature }}<br>
-                        <strong>Condition:</strong> {{ item.condition }}<br>
-                        <hr>
+                        <strong>Condition:</strong> {{ item.condition }}
                     </li>
                 {% endfor %}
             </ul>
         {% else %}
             <p>No results found for "{{ search_query }}".</p>
         {% endif %}
+    {% else %}
+        <p>Type a city name above and click "Search" to see results.</p>
+    {% endif %}
+
+    <hr>
+
+    <!-- Display previous search history -->
+    {% if search_history %}
+        <h2>Previous Searches</h2>
+        <ul>
+            {% for search in search_history %}
+                <li>
+                    <strong>Search:</strong> {{ search.query }}
+                    {% if search.results %}
+                        <ul>
+                            {% for item in search.results %}
+                                <li>
+                                    <strong>City:</strong> {{ item.name }},
+                                    <strong>Country:</strong> {{ item.country }},
+                                    <strong>Temperature:</strong> {{ item.temperature }},
+                                    <strong>Condition:</strong> {{ item.condition }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No results found.</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 </body>
 </html>

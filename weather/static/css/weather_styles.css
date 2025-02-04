@@ -1,133 +1,282 @@
-/* Global layout & background */
+/* ========================================================================
+   Global Settings
+   ======================================================================== */
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #dedede;
+  --error-color: #ffcccc;
+  --background-overlay: rgba(0, 0, 0, 0.6);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --font-family: 'Poppins', sans-serif;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --card-border: rgba(255, 255, 255, 0.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
-    background: url('../images/image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: white;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  text-align: center;
+  line-height: 1.6;
+  background: url('../images/image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: brightness(0.95);
 }
 
 @media (max-width: 768px) {
-    body {
-        background-size: contain;
-    }
+  body {
+    background-size: contain;
+  }
 }
 
-/* Form Container */
+/* ========================================================================
+   Header and Link Styles
+   ======================================================================== */
+
+h1, h2, h3 {
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.register-h2 {
+  font-size: 2.5em;
+  margin-top: 30px;
+}
+
+/* Anchor Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+/* ========================================================================
+   Form Styling
+   ======================================================================== */
+
+/* Optional container for forms (if you wish to wrap your form) */
 .form-container {
-    max-width: 600px;             /* Wider container to accommodate side-by-side fields */
-    margin: 50px auto;            /* Center horizontally */
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: var(--background-overlay);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.form-container h2 {
-    margin-bottom: 20px;
-    font-size: 2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+@media (max-width: 600px) {
+  .form-container {
+    margin: 20px;
+    padding: 15px;
+  }
 }
 
-/* Form Rows: label + input side by side */
-.form-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* left-align within container */
-    margin: 15px 0;
+/* Generic form styling (for register and login forms) */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-/* Labels */
-.form-row label {
-    width: 160px;             /* Fixed label width so fields align nicely */
-    text-align: right;        /* Right-align label text */
-    margin-right: 15px;       /* Space between label and input */
-    font-weight: bold;
+/* Form Group for individual fields */
+.form-group {
+  margin-bottom: 1.5em;
+  text-align: left;
 }
 
-/* Inputs */
-.form-row input[type="text"],
-.form-row input[type="password"],
-.form-row input[type="email"] {
-    flex: 1;                  /* Take remaining horizontal space */
-    padding: 12px;
-    font-size: 1em;
-    border: none;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    outline: none;
-    transition: box-shadow 0.3s;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 600;
 }
 
-/* Hover/focus states for inputs */
-.form-row input:focus {
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+.block-group {
+  display: block;
+  margin-bottom: 0.5em;
 }
 
-/* Help text (like password rules) */
-.helptext {
-    display: block;
-    font-size: 0.85em;        /* Smaller font */
-    color: #dedede;           /* Slightly lighter text */
-    margin-top: 5px;
-    text-align: left;         /* Align left under the field */
-    width: 100%;
-    margin-left: calc(160px + 15px); /* Align with the input fields */
+/* Input fields for text, password, and email */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background: var(--input-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-bottom: 0.5em;
 }
 
-/* Error messages */
-.errorlist {
-    margin-top: 5px;
-    text-align: left;
-    color: #ffcccc;           /* Light red for errors */
-    font-size: 0.85em;
-    width: 100%;
-    margin-left: calc(160px + 15px); /* Align with the input fields */
+input:focus {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
-/* Submit Button */
+/* Styling for form help text */
+.form-text {
+  font-size: 0.9em;
+  color: var(--secondary-color);
+}
+
+/* Button styling */
 button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.8));
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.4s, box-shadow 0.4s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.8));
+  color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.4s, box-shadow 0.4s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: block;
+  width: 100%;
 }
 
 button:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(50, 50, 50, 1));
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(50, 50, 50, 1));
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
 }
 
-.form-group {
-    margin-bottom: 1rem;
-}
-  
-.help-text {
-    display: block; /* Help text'i bir alt satıra alır */
-    margin-top: 3rem; /*Help text ile input arasına boşluk ekler */
-    color: #6c757d; /* Help text rengini ayarlar */
+/* ========================================================================
+   Search Page Specific Styling
+   ======================================================================== */
+
+/* Optional styling for a search form container */
+.search-form {
+  max-width: 400px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.block-group{
-    margin-top: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
+.search-form input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background: var(--input-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.register-h2{
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+.search-form input:focus {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
-.text-muted{
-    margin-top: 0.75rem;
+.search-form button {
+  padding: 12px 20px;
+}
+
+/* Style for horizontal rules */
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--card-border);
+  margin: 20px 0;
+}
+
+/* ========================================================================
+   List and Search Results Styling
+   ======================================================================== */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+li {
+  margin-bottom: 1em;
+  padding: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+}
+
+/* Nested lists (e.g., search history results) */
+ul ul {
+  margin-left: 20px;
+}
+
+/* ========================================================================
+   Existing Glassmorphism Effects for Results and Cards
+   ======================================================================== */
+
+.results-container, .previous-searches {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.results-container h3, .previous-searches h3 {
+  font-size: 1.8em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.search-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.search-card p {
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: var(--primary-color);
+  flex: 1;
+}
+
+.search-card strong {
+  color: var(--secondary-color);
+}
+
+@media (max-width: 600px) {
+  .results-container, .previous-searches {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .search-card {
+    flex-direction: column;
+    text-align: left;
+  }
 }
