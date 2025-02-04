@@ -7,12 +7,37 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/weather_styles.css' %}">
 </head>
 <body>
-    <h2>Register</h2>
+    <h1 class="register-h2">Register</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
+        
+        <div class="form-group" id="usernamelabel">
+          <label class="block-group" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+          {{ form.username }}
+          {% if form.username.help_text %}
+            <small class="form-text text-muted block-group">{{ form.username.help_text }}</small>
+          {% endif %}
+        </div>
+        
+        <div class="form-group block-group">
+          <label  class="block-group" for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+          {{ form.password1 }}
+          {% if form.password1.help_text %}
+            <small class="form-text text-muted block-group">{{ form.password1.help_text }}</small>
+          {% endif %}
+        </div>
+        
+        <div class="form-group block-group">
+          <label class="block-group"  for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+          {{ form.password2 }}
+          {% if form.password2.help_text %}
+            <small class="form-text text-muted block-group">{{ form.password2.help_text }}</small>
+          {% endif %}
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+    
     <p>Already have an account? <a href="{% url 'login' %}">Log in here</a>.</p>
 </body>
 </html>
