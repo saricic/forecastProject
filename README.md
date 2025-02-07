@@ -1,10 +1,10 @@
-forecastProject
+#Forecast Project
 
-Overview
+##Overview
 
 forecastProject is a weather forecasting application that allows users to register and access weather forecasts. It also maintains a search history for users to review past queries.
 
-Features
+##Features
 
 User Registration: Users can create an account to access personalized features.
 
